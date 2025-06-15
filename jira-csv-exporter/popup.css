@@ -1,0 +1,650 @@
+:root {
+  /* Primary colors */
+  --primary-color: #0052cc;
+  --primary-hover: #0065ff;
+  --primary-active: #0747a6;
+  
+  /* Status colors */
+  --success-color: #36b37e;
+  --warning-color: #ffab00;
+  --error-color: #de350b;
+  
+  /* Text colors */
+  --text-primary: #172b4d;
+  --text-secondary: #5e6c84;
+  --text-muted: #7a869a;
+  
+  /* Background colors */
+  --background-primary: #f4f5f7;
+  --background-secondary: #ffffff;
+  --background-tertiary: #fafbfc;
+  
+  /* Border colors */
+  --border-primary: #dfe1e6;
+  --border-secondary: #c1c7d0;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(9, 30, 66, 0.08);
+  --shadow-md: 0 4px 8px rgba(9, 30, 66, 0.1);
+  --shadow-lg: 0 8px 16px rgba(9, 30, 66, 0.12);
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* Dark theme */
+body.dark-mode {
+  --primary-color: #4c9aff;
+  --primary-hover: #5aadff;
+  --primary-active: #1f7ad9;
+  
+  --success-color: #4caf50;
+  --warning-color: #ffc107;
+  --error-color: #ef5350;
+  
+  --text-primary: #e4f0fb;
+  --text-secondary: #9fadbc;
+  --text-muted: #7a869a;
+  
+  --background-primary: #1f2a38;
+  --background-secondary: #253447;
+  --background-tertiary: #1a2432;
+  
+  --border-primary: #3d3d3d;
+  --border-secondary: #4a4a4a;
+  
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  width: 800px;
+  min-height: 600px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  transition: var(--transition-normal);
+  overflow: hidden;
+}
+
+/* Layout */
+.container {
+  flex: 1;
+  padding: var(--spacing-lg);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--background-secondary);
+  border-bottom: 1px solid var(--border-primary);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.header-icons button {
+  background: none;
+  border: none;
+  border-radius: 3px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.header-icons button:hover {
+  background-color: var(--background-tertiary);
+  color: var(--text-primary);
+}
+
+.app-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-primary);
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.jira-title-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.card {
+  background-color: var(--card-background);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .card {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.button-container {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-buttons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 1.2em;
+  color: var(--text-color);
+}
+
+.append-container button {
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--button-background);
+  color: var(--button-text);
+  border: none;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.append-container button:hover {
+  background-color: var(--button-hover);
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: var(--shadow-sm);
+  border-radius: 8px;
+  overflow: hidden; /* Ensure rounded corners are visible */
+}
+
+/* Table Header */
+thead th {
+  background-color: var(--background-tertiary);
+  color: var(--text-primary);
+  font-weight: 600;
+  text-align: left;
+  border-bottom: 1px solid var(--border-primary);
+  padding: 8px; /* Added padding */
+}
+
+/* Table Cells */
+tbody td {
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-primary);
+  padding: 8px; /* Added padding */
+}
+
+/* Row Hover Effect */
+tbody tr:hover td {
+  background-color: #f8f9fa;
+}
+
+/* Alternating Row Colors */
+tbody tr:nth-child(even) {
+  background-color: #f9fafc;
+}
+
+/* Remove bottom border from last row */
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Column Widths - Optimized for compact layout */
+table th:nth-child(1),
+table td:nth-child(1) { 
+  width: 120px; 
+  min-width: 120px; 
+  max-width: 150px; /* Increased max-width */
+  padding: 8px 12px; /* Increased horizontal padding */
+} /* TFS/JIRA ID */
+
+table th:nth-child(2),
+table td:nth-child(2) { 
+  width: 180px; 
+  min-width: 180px;
+  max-width: 220px; /* Increased max-width */
+  padding: 8px 12px; /* Increased horizontal padding */
+} /* Project Name */
+
+table th:nth-child(3),
+table td:nth-child(3) { 
+  width: 120px; 
+  min-width: 120px;
+  max-width: 150px; /* Increased max-width */
+  padding: 8px 12px; /* Increased horizontal padding */
+} /* BotName */
+
+table th:nth-child(4),
+table td:nth-child(4) { 
+  width: 140px; 
+  min-width: 140px;
+  max-width: 160px; /* Increased max-width */
+  white-space: normal;
+  line-height: 1.2;
+  padding: 8px 12px; /* Increased horizontal padding */
+} /* Month of Creation */
+
+table th:nth-child(5),
+table td:nth-child(5) { 
+  width: 120px; 
+  min-width: 120px;
+  max-width: 140px; /* Increased max-width */
+  white-space: normal;
+  line-height: 1.2;
+  padding: 8px 12px; /* Increased horizontal padding */
+} /* CreationDate */
+
+table th:nth-child(6),
+table td:nth-child(6) { 
+  width: 140px; 
+  min-width: 140px;
+  max-width: 160px; /* Increased max-width */
+  white-space: normal;
+  line-height: 1.2;
+  padding: 8px 12px; /* Increased horizontal padding */
+} /* Project Start Date */
+
+table th:nth-child(7),
+table td:nth-child(7) { 
+  width: 120px; 
+  min-width: 120px;
+  max-width: 140px; /* Increased max-width */
+  white-space: normal;
+  line-height: 1.2;
+  padding: 8px 12px; /* Increased horizontal padding */
+} /* Completion date */
+
+table th:nth-child(8),
+table td:nth-child(8) { 
+  width: 100px; 
+  min-width: 100px;
+  max-width: 120px; /* Increased max-width */
+  text-align: right;
+  font-family: monospace;
+  padding: 8px 14px 8px 12px; /* Adjusted padding */
+} /* Efforts in Min. */
+
+table th:nth-child(9),
+table td:nth-child(9) { 
+  width: 80px; 
+  min-width: 80px;
+  max-width: 100px; /* Increased max-width */
+  text-align: right;
+  font-family: monospace;
+  padding: 8px 14px 8px 12px; /* Adjusted padding */
+} /* Efforts in Hrs */
+
+/* Ensure table header text wraps properly */
+thead th {
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding: 12px 8px;
+  line-height: 1.3;
+}
+
+/* Dark Mode Styles */
+body.dark-mode thead th {
+  background-color: #253858;
+  color: #d9e1f2;
+  border-bottom-color: #344563;
+}
+
+body.dark-mode td {
+  color: #e4ebf5;
+  border-bottom-color: #344563;
+}
+
+body.dark-mode tbody tr:hover td {
+  background-color: #2c3e5d;
+}
+
+body.dark-mode tbody tr:nth-child(even) {
+  background-color: #1f2a3f;
+}
+
+td input[type="text"] {
+  width: 100%;
+  padding: 6px; /* Adjusted padding inside input */
+  box-sizing: border-box;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-background);
+  color: var(--text-color);
+  border-radius: 4px; /* Add slight rounded corners to inputs */
+}
+
+/* Empty state */
+.empty-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-xl);
+  color: var(--text-secondary);
+  display: none; /* Hidden by default, shown by JS */
+}
+
+/* Extract button in empty state */
+.extract-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background-color: #0065ff; /* Brighter blue for better visibility */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 101, 255, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.extract-button:hover {
+  background-color: #0052e0; /* Slightly darker on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 101, 255, 0.25);
+}
+
+.extract-button:active {
+  background-color: #0047c4;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 101, 255, 0.2);
+}
+
+.extract-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 101, 255, 0.3);
+}
+
+.extract-button .material-icons {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Dark mode specific styles */
+body.dark-mode .extract-button {
+  background-color: #1a73e8; /* Slightly different blue that works better in dark mode */
+  box-shadow: 0 2px 4px rgba(26, 115, 232, 0.4);
+}
+
+body.dark-mode .extract-button:hover {
+  background-color: #1557b0;
+  box-shadow: 0 4px 8px rgba(26, 115, 232, 0.35);
+}
+
+body.dark-mode .extract-button:active {
+  background-color: #13489c;
+}
+
+.empty-state img {
+  width: 286px; /* Increased size by 1.3x */
+  margin-bottom: 20px;
+  border-radius: 10px; /* Rounded edges */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow like in the screenshot */
+}
+
+.empty-state button {
+   padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--button-background);
+  color: var(--button-text);
+  border: none;
+  transition: background-color 0.2s ease;
+  margin-top: 15px;
+}
+
+.empty-state button:hover {
+  background-color: var(--button-hover);
+}
+
+.empty-state p {
+  margin: 5px 0; /* Adjust vertical spacing between paragraphs */
+  font-size: 1em;
+}
+
+.empty-state p:first-of-type {
+  margin-top: 0; /* Remove top margin for the first paragraph */
+  font-size: 1.1em; /* Slightly larger font for the main message */
+  font-weight: bold; /* Make the main message bold */
+}
+
+.empty-state p:last-of-type {
+    margin-bottom: 20px; /* Add space below the last paragraph before the button */
+}
+
+.footer {
+  margin-top: 20px;
+  font-size: 0.9em;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.append-options {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  background-color: var(--card-background);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  right: 0; /* Align with the right edge of the append button */
+  top: 100%; /* Position below the append button */
+  margin-top: 5px;
+  border-radius: 4px;
+  min-width: 150px; /* Ensure dropdown has a minimum width */
+}
+
+body.dark-mode .append-options {
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+}
+
+.append-options button {
+  background: none;
+  border: none;
+  padding: 10px 15px;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s ease;
+  color: var(--text-color);
+}
+
+.append-options button:hover {
+  background-color: var(--table-header-background);
+}
+
+.append-container {
+    position: relative;
+    display: inline-block; /* To position the dropdown relative to the button */
+}
+
+/* Basic Material Icons style */
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.message {
+    margin-bottom: 10px;
+}
+
+.message[style*="color: red"] {
+    color: var(--message-color-error) !important;
+}
+
+.message[style*="color: green"] {
+    color: var(--message-color-success) !important;
+}
+
+/* Side Panel Styles */
+.side-panel {
+  position: fixed; /* Position relative to the viewport */
+  top: 0;
+  right: -300px; /* Start off-screen to the right */
+  width: 300px; /* Set the width of the panel */
+  height: 100%;
+  background-color: var(--card-background); /* Use card background for panel */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow */
+  transition: right 0.3s ease-in-out; /* Smooth transition for opening/closing */
+  z-index: 1000; /* Ensure panel is above other content */
+  display: flex;
+  flex-direction: column;
+}
+
+.side-panel.open {
+  right: 0; /* Slide in from the right */
+}
+
+.side-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--header-background); /* Use header background for panel header */
+}
+
+.side-panel-header h2 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.side-panel-header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  color: var(--text-color);
+}
+
+.side-panel-content {
+  padding: 20px;
+  overflow-y: auto; /* Add scroll if content overflows */
+  flex-grow: 1;
+}
+
+.side-panel-content p {
+    margin: 10px 0;
+}
+
+/* Overlay styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 999; /* Below the side panel */
+  display: none; /* Hidden by default */
+}
+
+.overlay.visible {
+  display: block; /* Show when panel is open */
+}
+
+.highlight-row {
+  animation: highlight-animation 2s ease-out;
+}
+
+@keyframes highlight-animation {
+  0% {
+    background-color: rgba(255, 255, 0, 0.3);
+  }
+  100% {
+    background-color: transparent;
+  }
+} 

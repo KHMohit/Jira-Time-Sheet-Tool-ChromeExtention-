@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Jira Ticket CSV Exporter",
+  "version": "1.0",
+  "description": "Extract Jira ticket info and export as CSV.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": ["https://*.atlassian.net/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "images/icon_jira.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.atlassian.net/browse/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+} 

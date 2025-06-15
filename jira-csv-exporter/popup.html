@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jira Ticket CSV Exporter</title>
+  <link rel="stylesheet" href="popup.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <div class="header">
+    <div class="header-title">
+      <img src="images/icon_jira.png" alt="Jira Icon" class="jira-title-icon">
+      <h1>Jira Ticket CSV Exporter</h1>
+    </div>
+    <div class="header-icons">
+      <button id="themeToggleBtn" title="Toggle Theme"><span class="material-icons">brightness_4</span></button>
+      <button id="menuBtn" title="Menu"><span class="material-icons">menu</span></button>
+      <img src="images/icon_jira.png" alt="App Icon" class="app-icon">
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="button-container">
+      <div class="icon-buttons">
+        <button id="extractBtn" title="Extract Data"><span class="material-icons">add</span></button>
+        <button id="clearBtn" title="Clear Data"><span class="material-icons">delete</span></button>
+        <button id="downloadBtn" title="Download CSV"><span class="material-icons">download</span></button>
+      </div>
+      <div class="append-container">
+         <button id="appendBtn" title="Append to Existing CSV">Append to Existing CSV <span class="material-icons">arrow_drop_down</span></button>
+         <div class="append-options" id="appendOptions">
+             <button id="defaultAppendBtn">Append to Default</button>
+             <button id="customAppendBtn">Append to Custom File</button>
+         </div>
+      </div>
+    </div>
+    
+    <div id="dataContainer">
+      <!-- Data table or empty state will be rendered here by popup.js -->
+    </div>
+
+    <div class="empty-state" id="emptyState">
+        <img src="images/ticket_image.jpg" alt="No data extracted yet">
+        <p>No tickets extracted yet</p>
+        <p>Start by extracting tickets from a Jira page.</p>
+        <button id="extractBtnEmpty" class="extract-button">
+          <span class="material-icons">add</span>
+          <span>Extract Tickets</span>
+        </button>
+    </div>
+
+    <div class="footer">
+      <p>Data is stored for this browser session only. Close the browser to clear all data automatically.</p>
+    </div>
+  </div>
+
+  <!-- Side Panel Structure -->
+  <div id="sidePanel" class="side-panel">
+      <div class="side-panel-header">
+          <h2>Menu</h2>
+          <button id="closePanelBtn"><span class="material-icons">close</span></button>
+      </div>
+      <div class="side-panel-content">
+          <!-- Add menu items here -->
+          <p>Menu Item 1</p>
+          <p>Menu Item 2</p>
+          <p>Menu Item 3</p>
+      </div>
+  </div>
+
+  <!-- Overlay for Side Panel -->
+  <div id="sidePanelOverlay" class="overlay"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html> 
